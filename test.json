@@ -1,0 +1,7 @@
+{
+   "name": "Hello World Project",
+   "documents": [
+      {"name": "SRD", "value": "test_value_1"},
+      {"name": "SDD", "value": "test_value_2"}
+   ]
+}
