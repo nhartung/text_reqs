@@ -10,7 +10,7 @@ class Project {
 
   dynamic _decodeMetaData(var jsonData) {
     name = jsonData['name'];
-    for(var documentMeta in jsonData['documents']) {
+    for (var documentMeta in jsonData['documents']) {
       var document = Document(documentMeta);
       documents[document.name] = document;
     }
