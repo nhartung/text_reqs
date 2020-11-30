@@ -1,9 +1,10 @@
 class Document {
-   String name;
-   String value;
+  String name;
+  String path;
 
-   Document(var documentMetaJson) {
-     name = documentMetaJson['name'];
-     value = documentMetaJson['value'];
-   }
+  Document(this.name, this.path);
+}
+
+abstract class DocumentLoaderInterface {
+  void loadDocument(Document document);
 }

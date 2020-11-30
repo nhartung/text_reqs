@@ -2,17 +2,25 @@ import 'document.dart';
 
 class Project {
   String name;
-  var documents = <String, Document>{};
+  Map<String, Document> documentMap = <String, Document>{};
 
-  Project(var projectMetaData) {
-    _decodeMetaData(projectMetaData);
+  Project(this.name, List<Document> documents) {
+    for (var document in documents) {
+      documentMap[document.name] = document;
+    }
   }
 
-  dynamic _decodeMetaData(var jsonData) {
-    name = jsonData['name'];
-    for (var documentMeta in jsonData['documents']) {
-      var document = Document(documentMeta);
-      documents[document.name] = document;
+  List<String> getDocumentNames() {
+    var retList = <String>[];
+    for (var entry in documentMap.keys) {
+      retList.add(entry);
     }
+    return retList;
+  }
+
+  Document getDocument(String documentName) {
+    documentMap[documentName] ??
+        (throw ArgumentError('You must specify a valid document.'));
+    return documentMap[documentName];
   }
 }
